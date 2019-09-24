@@ -1,0 +1,20 @@
+[{
+	"boards": {
+		"a": {
+			"name": "Anime",
+			"flags": []
+		},
+		"b": {
+			"name": "Random",
+			"flags": ["nsfw"]
+		},
+		"fit": {
+			"name": "Fitness",
+			"flags": []
+		},
+		"wsg": {
+			"name": "Worksage Gif",
+			"flags": []
+		}
+	}
+}]

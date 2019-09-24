@@ -1,0 +1,21 @@
+name: cc-board-instance
+version: 0.1.0
+
+# authors:
+#   - name <email@example.com>
+
+# description: |
+#   Short description of cc-board-instance
+
+dependencies:
+#   pg:
+#     github: will/crystal-pg
+#     version: "~> 0.5"
+  json-socket:
+      github: foi/crystal-json-socket
+
+# development_dependencies:
+#   webmock:
+#     github: manastech/webmock.cr
+
+# license: MIT

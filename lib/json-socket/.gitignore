@@ -1,0 +1,4 @@
+client.cr
+server.cr
+*.sock
+node_modules
