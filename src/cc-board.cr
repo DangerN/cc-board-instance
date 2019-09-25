@@ -1,32 +1,40 @@
-require "json-socket"
-require "json"
+# require "json-socket"
+# require "json"
+require "kemal"
+require "http/web_socket"
+require "dotenv"
 
-module Board
-  class Test
-    def test
-      puts "this is a test yo"
-    end
+Dotenv.load
+
+ws "/" do |socket|
+  puts "socket open"
+  socket.send "yo yo yo"
+  # socket.on_message do |message|
+  #   socket.send "Echo yo #{message}"
+  # end
+  socket.on_ping do
+    puts "got pinged yo"
+  end
+  socket.on_close do
+    puts "closed socket"
   end
 end
 
-struct CustomJSONSocketServer
+Kemal.config.port = 42042
 
-  include JSONSocket::Server
 
-  def on_message(message, socket)
-    puts message
-    result = (message["a"].as_i + message["b"].as_i) * message["b"].as_i * message["a"].as_i
-    self.send_end_message({ :result => result}, socket)
-  end
-
+client_socket = HTTP::WebSocket.new("0.0.0.0","/","9001")
+client_socket.send ENV["BOARD"]
+client_socket.on_message do |message|
+  puts message
 end
 
-data = File.open("src/mock_data.json") do |file|
-  JSON.parse(file)
+spawn do
+  client_socket.run
 end
-puts data
-test = Board::Test.new
-test.test
 
-server = CustomJSONSocketServer.new("127.0.0.1", 1234)
-server.listen
+spawn do
+  Kemal.run
+end
+
+sleep

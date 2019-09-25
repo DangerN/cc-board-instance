@@ -8,11 +8,15 @@ version: 0.1.0
 #   Short description of cc-board-instance
 
 dependencies:
-#   pg:
-#     github: will/crystal-pg
-#     version: "~> 0.5"
+  pg:
+    github: will/crystal-pg
+    version: "~> 0.5"
+  kemal:
+      github: kemalcr/kemal
   json-socket:
       github: foi/crystal-json-socket
+  dotenv:
+      github: gdotdesign/cr-dotenv
 
 # development_dependencies:
 #   webmock:
