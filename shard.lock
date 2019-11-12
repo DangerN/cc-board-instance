@@ -2,7 +2,7 @@ version: 1.0
 shards:
   cc-lib:
     github: DangerN/cc-lib
-    version: 0.2.12
+    version: 0.2.33
 
   db:
     github: crystal-lang/crystal-db

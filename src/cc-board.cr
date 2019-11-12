@@ -5,22 +5,18 @@ require "json"
 require "cc-lib"
 
 Dotenv.load
-
-BOARD_LIST = {
-  "fit" => {"name": "Fitness"},
-  "ck" => {"name": "Food and Cooking"},
-  "v" => {"name": "Video Games"}
-}
-
 CC.initialize_dummy_boards
+BOARD_LIST = CC.board_list
 
 def handle_message(message : String, socket : HTTP::WebSocket)
   if (message == "base")
-    {"boardList": BOARD_LIST}
+    {"boardList": BOARD_LIST,
+      "announce": "This site is still under development."
+    }
   else
     return {"error" => "Bad Request"} unless BOARD_LIST.keys.includes?(message)
     {"boardDump" => {
-      "#{message}" => "yoinks"
+      "#{message}" => CC.board_by_id(message)
       }}
   end
 end
