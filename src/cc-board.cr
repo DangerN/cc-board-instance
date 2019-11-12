@@ -7,9 +7,9 @@ require "cc-lib"
 Dotenv.load
 
 BOARD_LIST = {
-  "fit": {"name": "Fitness"},
-  "ck": {"name": "Food and Cooking"},
-  "v": {"name": "Video Games"}
+  "fit" => {"name": "Fitness"},
+  "ck" => {"name": "Food and Cooking"},
+  "v" => {"name": "Video Games"}
 }
 
 CC.initialize_dummy_boards
@@ -18,9 +18,10 @@ def handle_message(message : String, socket : HTTP::WebSocket)
   if (message == "base")
     {"boardList": BOARD_LIST}
   else
-    return "Bad Request" unless BOARD_LIST.keys.includes?(message)
-    CC.subscriptions[message].push socket
-    CC.board_by_id message
+    return {"error" => "Bad Request"} unless BOARD_LIST.keys.includes?(message)
+    {"boardDump" => {
+      "#{message}" => "yoinks"
+      }}
   end
 end
 
