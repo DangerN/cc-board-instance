@@ -1,0 +1,16 @@
+name: cc-lib
+version: 0.2.1
+
+description: |
+  The library that cc servers are built on. You need this.
+
+authors:
+  - crystal-neal <cdneal091@gmail.com>
+
+dependencies:
+  dotenv:
+    github: xtokio/dotenv
+
+crystal: 0.31.1
+
+license: MIT

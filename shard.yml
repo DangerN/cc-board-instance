@@ -17,6 +17,8 @@ dependencies:
       github: foi/crystal-json-socket
   dotenv:
       github: gdotdesign/cr-dotenv
+  cc-lib:
+      github: DangerN/cc-lib
 
 # development_dependencies:
 #   webmock:

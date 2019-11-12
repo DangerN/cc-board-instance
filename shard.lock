@@ -1,5 +1,9 @@
 version: 1.0
 shards:
+  cc-lib:
+    github: DangerN/cc-lib
+    version: 0.2.12
+
   db:
     github: crystal-lang/crystal-db
     version: 0.7.0
@@ -14,7 +18,7 @@ shards:
 
   json-socket:
     github: foi/crystal-json-socket
-    commit: 0c3a3667ea4b051e6f633ec695ea0d2547cb7917
+    commit: 7dabcc6a5c2ed637bd170309208fb7364b708ec5
 
   kemal:
     github: kemalcr/kemal
