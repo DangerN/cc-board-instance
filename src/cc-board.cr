@@ -39,11 +39,7 @@ ws "/" do |socket|
   end
 end
 
-ws "/updates" do |socket|
-  socket.on_message do |message|
-    handle_update message
-  end
-end
+
 
 Kemal.config.port = 42042
 
